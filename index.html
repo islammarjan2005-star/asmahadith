@@ -2310,6 +2310,138 @@
     };
 
     // ============================================
+    // ADHKAR API SERVICE
+    // Fetches morning/evening adhkar from GitHub DB
+    // ============================================
+
+    const AdhkarAPI = {
+      // GitHub raw content URL for the adhkar database
+      apiUrl: 'https://raw.githubusercontent.com/Seen-Arabic/Morning-And-Evening-Adhkar-DB/main/en.json',
+
+      // Cache for API data
+      cache: null,
+      cacheTimestamp: null,
+      cacheDuration: 24 * 60 * 60 * 1000, // 24 hours
+
+      // Fetch adhkar from API
+      async fetchAdhkar() {
+        // Return cached data if valid
+        if (this.cache && this.cacheTimestamp && (Date.now() - this.cacheTimestamp < this.cacheDuration)) {
+          return this.cache;
+        }
+
+        try {
+          const response = await fetch(this.apiUrl);
+          if (!response.ok) throw new Error('Failed to fetch adhkar');
+
+          const data = await response.json();
+
+          // Transform API data to our format
+          const transformed = this.transformData(data);
+
+          // Cache the result
+          this.cache = transformed;
+          this.cacheTimestamp = Date.now();
+
+          // Also cache in localStorage for offline use
+          try {
+            localStorage.setItem('adhkar-api-cache', JSON.stringify({
+              data: transformed,
+              timestamp: Date.now()
+            }));
+          } catch (e) {
+            console.log('Could not cache adhkar to localStorage');
+          }
+
+          return transformed;
+        } catch (error) {
+          console.error('Adhkar API error:', error);
+
+          // Try to get from localStorage cache
+          try {
+            const cached = localStorage.getItem('adhkar-api-cache');
+            if (cached) {
+              const { data } = JSON.parse(cached);
+              this.cache = data;
+              return data;
+            }
+          } catch (e) {}
+
+          // Return null to signal fallback to local data
+          return null;
+        }
+      },
+
+      // Transform API data to match our existing format
+      transformData(apiData) {
+        const morning = [];
+        const evening = [];
+
+        apiData.forEach((item, index) => {
+          const transformed = {
+            id: `api_${item.order || index}`,
+            arabic: item.content || '',
+            transliteration: item.transliteration || '',
+            translation: item.translation || '',
+            source: item.source || 'Authentic Hadith',
+            benefit: item.fadl || item.hadith_text || '',
+            count: parseInt(item.count) || 1,
+            audioUrl: item.audio || null
+          };
+
+          // Type: 0=both, 1=morning only, 2=evening only
+          const type = parseInt(item.type) || 0;
+
+          if (type === 0 || type === 1) {
+            morning.push({ ...transformed, id: `m_api_${item.order || index}` });
+          }
+          if (type === 0 || type === 2) {
+            evening.push({ ...transformed, id: `e_api_${item.order || index}` });
+          }
+        });
+
+        return { morning, evening };
+      },
+
+      // Play audio for an adhkar
+      currentAudio: null,
+
+      async playAudio(audioUrl, onEnd) {
+        this.stopAudio();
+
+        if (!audioUrl) return false;
+
+        try {
+          this.currentAudio = new Audio(audioUrl);
+          this.currentAudio.onended = () => {
+            this.currentAudio = null;
+            if (onEnd) onEnd();
+          };
+          this.currentAudio.onerror = () => {
+            this.currentAudio = null;
+            if (onEnd) onEnd();
+          };
+          await this.currentAudio.play();
+          return true;
+        } catch (error) {
+          console.error('Audio playback error:', error);
+          return false;
+        }
+      },
+
+      stopAudio() {
+        if (this.currentAudio) {
+          this.currentAudio.pause();
+          this.currentAudio = null;
+        }
+      },
+
+      isPlaying() {
+        return this.currentAudio !== null && !this.currentAudio.paused;
+      }
+    };
+
+    // ============================================
     // WORD-BY-WORD QURAN SERVICE
     // Provides individual word audio, translations, and timing
     // ============================================
@@ -8472,12 +8604,33 @@
       const [showComplete, setShowComplete] = useState(false);
       const [isPlaying, setIsPlaying] = useState(false);
       const [showInfo, setShowInfo] = useState(false);
+      const [apiAdhkar, setApiAdhkar] = useState(null);
+      const [isLoading, setIsLoading] = useState(true);
       const touchStartX = useRef(0);
       const touchEndX = useRef(0);
 
-      const adhkars = adhkarDatabase[activeType] || [];
+      // Fetch adhkar from API on mount
+      useEffect(() => {
+        const loadAdhkar = async () => {
+          setIsLoading(true);
+          const data = await AdhkarAPI.fetchAdhkar();
+          if (data) {
+            setApiAdhkar(data);
+          }
+          setIsLoading(false);
+        };
+        loadAdhkar();
+      }, []);
+
+      // Use API data if available, otherwise fallback to local
+      const adhkars = apiAdhkar ? (apiAdhkar[activeType] || []) : (adhkarDatabase[activeType] || []);
       const currentAdhkar = adhkars[currentIndex];
-      const stats = getAdhkarStats(activeType);
+
+      // Calculate stats dynamically
+      const stats = {
+        totalDhikr: adhkars.reduce((sum, a) => sum + (a.count || 1), 0),
+        totalItems: adhkars.length
+      };
 
       // Get progress for current adhkar
       const getProgress = (dhikrId) => state.adhkarProgress?.[activeType]?.[dhikrId] || 0;
@@ -8569,22 +8722,36 @@
         setCurrentIndex(0);
       };
 
-      // Text-to-speech
-      const toggleAudio = () => {
+      // Audio playback - uses API audio if available, falls back to TTS
+      const toggleAudio = async () => {
         if (isPlaying) {
+          AdhkarAPI.stopAudio();
           window.speechSynthesis.cancel();
           setIsPlaying(false);
         } else if (currentAdhkar) {
+          setIsPlaying(true);
+
+          // Try API audio first
+          if (currentAdhkar.audioUrl) {
+            const success = await AdhkarAPI.playAudio(currentAdhkar.audioUrl, () => setIsPlaying(false));
+            if (success) return;
+          }
+
+          // Fallback to TTS
           const utterance = new SpeechSynthesisUtterance(currentAdhkar.arabic);
           utterance.lang = 'ar-SA';
           utterance.rate = 0.8;
           utterance.onend = () => setIsPlaying(false);
           window.speechSynthesis.speak(utterance);
-          setIsPlaying(true);
         }
       };
 
-      useEffect(() => { return () => window.speechSynthesis.cancel(); }, []);
+      useEffect(() => {
+        return () => {
+          AdhkarAPI.stopAudio();
+          window.speechSynthesis.cancel();
+        };
+      }, []);
       useEffect(() => { if (isSessionComplete) handleSessionComplete(); }, [sessionProgress]);
 
       return (
@@ -8601,9 +8768,22 @@
 
             <div className="text-center mb-6 animate-fade-in">
               <h1 className="text-3xl font-bold gradient-text mb-1">Daily Adhkar</h1>
-              <p className="text-sm text-pink-500">Guided morning & evening remembrance</p>
+              <p className="text-sm text-pink-500">
+                {isLoading ? 'Loading adhkar...' : apiAdhkar ? `${adhkars.length} authentic adhkar with audio` : 'Guided morning & evening remembrance'}
+              </p>
             </div>
 
+            {/* Loading State */}
+            {isLoading && (
+              <div className="flex-1 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-12 h-12 border-4 border-pink-200 border-t-pink-500 rounded-full animate-spin mx-auto mb-4"></div>
+                  <p className="text-pink-500">Loading adhkar collection...</p>
+                </div>
+              </div>
+            )}
+
+            {!isLoading && <>
             {/* Morning/Evening Toggle */}
             <div className="flex gap-2 mb-4 bg-pink-50 p-1 rounded-xl">
               <button onClick={() => { setActiveType('morning'); setCurrentIndex(0); }}
@@ -8740,6 +8920,7 @@
                 </div>
               </div>
             )}
+            </>}
           </div>
         </PageWrapper>
       );
