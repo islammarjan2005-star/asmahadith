@@ -8393,22 +8393,13 @@
       const [currentDhikr, setCurrentDhikr] = useState(0);
       const [count, setCount] = useState(0);
       const [showComplete, setShowComplete] = useState(false);
-      const [showRoundComplete, setShowRoundComplete] = useState(false);
 
       const dhikr = dhikrList[currentDhikr];
 
       const handleTap = () => {
         haptic.light();
         if (count < dhikr.target) {
-          const newCount = count + 1;
-          setCount(newCount);
-
-          // Check for round completion (every 33)
-          if (newCount % 33 === 0 && newCount < dhikr.target) {
-            haptic.medium();
-            setShowRoundComplete(true);
-            setTimeout(() => setShowRoundComplete(false), 1000);
-          }
+          setCount(count + 1);
         }
         if (count + 1 >= dhikr.target) {
           haptic.success();
@@ -8428,26 +8419,28 @@
         setCount(0);
       };
 
+      const progress = (count / dhikr.target) * 100;
+
       return (
         <PageWrapper className="flex flex-col">
           <div className="p-5 pt-8 max-w-lg mx-auto safe-top flex-1 flex flex-col">
             <BackButton onClick={() => updateState({ view: 'home' })} label="Home" />
 
-            <div className="text-center mb-4 animate-fade-in">
-              <h1 className="text-3xl font-bold gradient-text mb-2">Dhikr Counter</h1>
-              <p className="font-ruqaa text-2xl text-pink-400">التسبيح</p>
+            {/* Simple header */}
+            <div className="text-center mb-6">
+              <h1 className="text-2xl font-semibold text-pink-700">Dhikr</h1>
             </div>
 
-            {/* Dhikr Selector */}
-            <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-4 mb-4">
+            {/* Dhikr Selector - simple pills */}
+            <div className="flex gap-2 justify-center flex-wrap mb-8">
               {dhikrList.map((d, i) => (
                 <button
                   key={i}
                   onClick={() => { haptic.light(); setCurrentDhikr(i); setCount(0); }}
-                  className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+                  className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
                     currentDhikr === i
-                      ? 'bg-pink-500 text-white shadow-lg shadow-pink-200'
-                      : 'bg-white/70 text-pink-600'
+                      ? 'bg-pink-500 text-white'
+                      : 'bg-pink-50 text-pink-600'
                   }`}
                 >
                   {d.transliteration}
@@ -8455,70 +8448,69 @@
               ))}
             </div>
 
-            {/* Arabic text */}
-            <div className="text-center mb-4">
-              <p className="font-arabic text-2xl text-pink-700 animate-fade-in">{dhikr.arabic}</p>
-              <p className="text-pink-500 text-sm">{dhikr.meaning}</p>
+            {/* Main counter area */}
+            <div className="flex-1 flex flex-col items-center justify-center">
+              {/* Arabic text */}
+              <p className="font-arabic text-3xl text-pink-700 mb-2">{dhikr.arabic}</p>
+              <p className="text-pink-400 text-sm mb-8">{dhikr.meaning}</p>
+
+              {/* Simple tap circle */}
+              <button
+                onClick={handleTap}
+                className="relative w-48 h-48 rounded-full bg-white shadow-lg flex items-center justify-center active:scale-95 transition-transform"
+                style={{ boxShadow: '0 4px 20px rgba(236, 72, 153, 0.15)' }}
+              >
+                {/* Progress ring */}
+                <svg className="absolute inset-0 w-full h-full -rotate-90">
+                  <circle
+                    cx="96"
+                    cy="96"
+                    r="90"
+                    fill="none"
+                    stroke="#fdf2f8"
+                    strokeWidth="6"
+                  />
+                  <circle
+                    cx="96"
+                    cy="96"
+                    r="90"
+                    fill="none"
+                    stroke="#ec4899"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                    strokeDasharray={`${2 * Math.PI * 90}`}
+                    strokeDashoffset={`${2 * Math.PI * 90 * (1 - progress / 100)}`}
+                    style={{ transition: 'stroke-dashoffset 0.2s ease' }}
+                  />
+                </svg>
+
+                {/* Count display */}
+                <div className="text-center z-10">
+                  <span className="text-5xl font-light text-pink-600">{count}</span>
+                  <span className="text-pink-300 text-lg block">/ {dhikr.target}</span>
+                </div>
+              </button>
+
+              <p className="text-pink-300 text-sm mt-6">Tap to count</p>
             </div>
 
-            {/* 3D Tasbeeh */}
-            <div className="relative flex-1 flex flex-col items-center justify-center">
-              {/* Glow effect behind tasbeeh */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div className="w-64 h-64 bg-pink-400/20 rounded-full blur-3xl animate-pulse"></div>
-              </div>
-
-              <div className="relative w-full max-w-sm">
-                <Tasbeeh3D
-                  count={count % 33 || (count > 0 && count % 33 === 0 ? 33 : 0)}
-                  target={33}
-                  onTap={handleTap}
-                />
-
-                {/* Count overlay */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  <div className="text-center">
-                    <span className="text-5xl font-bold gradient-text drop-shadow-lg">{count}</span>
-                    <span className="text-pink-400 text-lg block">/ {dhikr.target}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Round indicator for targets > 33 */}
-              {dhikr.target > 33 && (
-                <div className="flex items-center justify-center gap-3 mt-4">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 backdrop-blur-sm shadow-md">
-                    <span className="text-pink-500 text-sm font-medium">Round</span>
-                    <span className="text-pink-700 font-bold">{Math.floor(count / 33) + (count % 33 === 0 && count > 0 ? 0 : 1)}</span>
-                    <span className="text-pink-400 text-sm">of {Math.ceil(dhikr.target / 33)}</span>
-                  </div>
-                </div>
-              )}
-
-              <p className="text-pink-400 text-sm mt-3 animate-pulse">Tap the tasbeeh to count</p>
-            </div>
-
-            {/* Controls */}
-            <div className="flex gap-4 justify-center pb-4">
+            {/* Simple controls */}
+            <div className="flex gap-3 justify-center pb-4">
               <button
                 onClick={handleReset}
-                className="w-14 h-14 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-pink-500 active:scale-90 transition-transform shadow-lg shadow-pink-200/50"
+                className="px-5 py-2.5 rounded-full bg-pink-50 text-pink-500 text-sm font-medium active:scale-95 transition-transform"
               >
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                </svg>
+                Reset
               </button>
               <button
                 onClick={handleNext}
-                className="px-8 py-4 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold active:scale-95 transition-transform shadow-xl shadow-pink-300/50"
+                className="px-5 py-2.5 rounded-full bg-pink-500 text-white text-sm font-medium active:scale-95 transition-transform"
               >
-                Next Dhikr
+                Next
               </button>
             </div>
 
-            {/* Completion Toast */}
             <Toast message="Completed! MashaAllah!" show={showComplete} />
-            <Toast message="Round complete! Keep going..." show={showRoundComplete} />
           </div>
         </PageWrapper>
       );
