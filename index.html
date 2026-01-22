@@ -3875,6 +3875,86 @@
     ];
 
     // ============================================
+    // SMART DAILY ADHKAR DATABASE
+    // ============================================
+    const adhkarDatabase = {
+      morning: [
+        { id: 'm1', arabic: 'أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ', transliteration: "Asbahna wa asbahal mulku lillah...", translation: 'We have reached the morning and the kingdom belongs to Allah. Praise is to Allah. There is no god but Allah alone.', source: 'Abu Dawud', benefit: "Start your day acknowledging Allah's sovereignty.", count: 1 },
+        { id: 'm2', arabic: 'اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ', transliteration: 'Allahumma bika asbahna...', translation: 'O Allah, by Your will we have reached the morning, by Your will we live and die, and unto You is the resurrection.', source: 'Tirmidhi', benefit: "Every breath is by Allah's permission.", count: 1 },
+        { id: 'm3', arabic: 'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ', transliteration: 'Sayyid al-Istighfar', translation: 'O Allah, You are my Lord. There is no god but You. You created me and I am Your servant. Forgive me, for none forgives sins but You.', source: 'Bukhari', benefit: 'Master supplication for forgiveness. Whoever says it with conviction enters Paradise.', count: 1 },
+        { id: 'm4', arabic: 'اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لَا إِلَٰهَ إِلَّا أَنْتَ', transliteration: "Allahumma 'afini fi badani...", translation: 'O Allah, grant me health in my body, hearing, and sight. There is no god but You.', source: 'Abu Dawud', benefit: 'Protection for your physical faculties.', count: 3 },
+        { id: 'm5', arabic: 'حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ', transliteration: 'Hasbiyallahu la ilaha illa huwa...', translation: 'Allah is sufficient for me. There is no god but Him. I have placed my trust in Him, Lord of the Mighty Throne.', source: 'Abu Dawud', benefit: 'Said 7 times, Allah will suffice you in whatever worries you.', count: 7 },
+        { id: 'm6', arabic: 'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ', transliteration: 'Bismillahil-ladhi la yadurru...', translation: 'In the name of Allah, with whose name nothing on earth or in heaven can cause harm.', source: 'Abu Dawud, Tirmidhi', benefit: 'Said 3 times, nothing will harm you that day.', count: 3 },
+        { id: 'm7', arabic: 'رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا', transliteration: 'Raditu billahi Rabba...', translation: 'I am pleased with Allah as Lord, with Islam as religion, and with Muhammad ﷺ as Prophet.', source: 'Abu Dawud, Tirmidhi', benefit: 'Said 3 times, Allah will please you on the Day of Judgment.', count: 3 },
+        { id: 'm8', arabic: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ', transliteration: 'Subhanallahi wa bihamdih', translation: 'Glory be to Allah and praise Him.', source: 'Muslim', benefit: 'Said 100 times, sins forgiven even if like the foam of the sea.', count: 100 },
+        { id: 'm9', arabic: 'لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ', transliteration: 'La ilaha illallahu wahdahu...', translation: 'There is no god but Allah alone, without partner. To Him belongs the dominion and praise.', source: 'Bukhari, Muslim', benefit: 'Said 10 times, equals freeing 4 slaves and protection from Shaytan.', count: 10 },
+        { id: 'm10', arabic: 'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ', transliteration: 'Astaghfirullaha wa atubu ilayh', translation: 'I seek forgiveness from Allah and repent to Him.', source: 'Bukhari, Muslim', benefit: 'The Prophet ﷺ sought forgiveness more than 70 times daily.', count: 100 },
+      ],
+      evening: [
+        { id: 'e1', arabic: 'أَمْسَيْنَا وَأَمْسَى الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَٰهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ', transliteration: "Amsayna wa amsal mulku lillah...", translation: 'We have reached the evening and the kingdom belongs to Allah. Praise is to Allah. There is no god but Allah alone.', source: 'Abu Dawud', benefit: "End your day acknowledging Allah's sovereignty.", count: 1 },
+        { id: 'e2', arabic: 'اللَّهُمَّ بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ الْمَصِيرُ', transliteration: 'Allahumma bika amsayna...', translation: 'O Allah, by Your will we have reached the evening, by Your will we live and die, and unto You is the return.', source: 'Tirmidhi', benefit: "Remember all life's journey is by Allah's will.", count: 1 },
+        { id: 'e3', arabic: 'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ', transliteration: 'Sayyid al-Istighfar', translation: 'O Allah, You are my Lord. There is no god but You. Forgive me, for none forgives sins but You.', source: 'Bukhari', benefit: 'Whoever says it with conviction in the evening and dies that night enters Paradise.', count: 1 },
+        { id: 'e4', arabic: 'اللَّهُمَّ عَافِنِي فِي بَدَنِي، اللَّهُمَّ عَافِنِي فِي سَمْعِي، اللَّهُمَّ عَافِنِي فِي بَصَرِي، لَا إِلَٰهَ إِلَّا أَنْتَ', transliteration: "Allahumma 'afini fi badani...", translation: 'O Allah, grant me health in my body, hearing, and sight.', source: 'Abu Dawud', benefit: 'Protection for your physical faculties.', count: 3 },
+        { id: 'e5', arabic: 'حَسْبِيَ اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ', transliteration: 'Hasbiyallahu la ilaha illa huwa...', translation: 'Allah is sufficient for me. I have placed my trust in Him, Lord of the Mighty Throne.', source: 'Abu Dawud', benefit: 'Said 7 times, Allah will suffice you in whatever worries you.', count: 7 },
+        { id: 'e6', arabic: 'بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ', transliteration: 'Bismillahil-ladhi la yadurru...', translation: 'In the name of Allah, with whose name nothing on earth or in heaven can cause harm.', source: 'Abu Dawud, Tirmidhi', benefit: 'Said 3 times, nothing will harm you that night.', count: 3 },
+        { id: 'e7', arabic: 'أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ', transliteration: "A'udhu bi kalimatillahit-tammati...", translation: 'I seek refuge in the perfect words of Allah from the evil of what He has created.', source: 'Muslim', benefit: 'Said 3 times, protection from all created harm.', count: 3 },
+        { id: 'e8', arabic: 'رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ نَبِيًّا', transliteration: 'Raditu billahi Rabba...', translation: 'I am pleased with Allah as Lord, with Islam as religion, and with Muhammad ﷺ as Prophet.', source: 'Abu Dawud, Tirmidhi', benefit: 'Said 3 times, Allah will please you on the Day of Judgment.', count: 3 },
+        { id: 'e9', arabic: 'سُبْحَانَ اللَّهِ وَبِحَمْدِهِ', transliteration: 'Subhanallahi wa bihamdih', translation: 'Glory be to Allah and praise Him.', source: 'Muslim', benefit: 'Said 100 times, sins forgiven even if like the foam of the sea.', count: 100 },
+        { id: 'e10', arabic: 'أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ', transliteration: 'Astaghfirullaha wa atubu ilayh', translation: 'I seek forgiveness from Allah and repent to Him.', source: 'Bukhari, Muslim', benefit: 'End your day seeking forgiveness.', count: 100 },
+      ],
+    };
+
+    const getAdhkarStats = (type) => {
+      const adhkars = adhkarDatabase[type] || [];
+      return { totalDhikr: adhkars.reduce((sum, a) => sum + a.count, 0), totalItems: adhkars.length };
+    };
+
+    // ============================================
+    // DUA COACH DATABASE
+    // ============================================
+    const duaCoachCategories = [
+      { id: 'anxiety', name: 'Anxiety & Worry', icon: 'heart', color: 'from-rose-400 to-pink-500', description: 'When your heart feels heavy' },
+      { id: 'marriage', name: 'Marriage & Love', icon: 'users', color: 'from-pink-400 to-rose-500', description: 'Finding or nurturing a spouse' },
+      { id: 'exams', name: 'Exams & Studies', icon: 'book', color: 'from-blue-400 to-indigo-500', description: 'When you need to succeed' },
+      { id: 'spirituality', name: 'Spiritual Growth', icon: 'sparkle', color: 'from-violet-400 to-purple-500', description: 'Getting closer to Allah' },
+      { id: 'health', name: 'Health & Healing', icon: 'activity', color: 'from-emerald-400 to-teal-500', description: 'For yourself or loved ones' },
+      { id: 'provision', name: 'Rizq & Career', icon: 'briefcase', color: 'from-amber-400 to-orange-500', description: 'Jobs, income, opportunities' },
+      { id: 'family', name: 'Family & Children', icon: 'home', color: 'from-cyan-400 to-blue-500', description: 'Parenting and family bonds' },
+      { id: 'grief', name: 'Grief & Loss', icon: 'cloud', color: 'from-slate-400 to-gray-500', description: 'When someone you love is gone' },
+      { id: 'protection', name: 'Protection & Safety', icon: 'shield', color: 'from-indigo-400 to-blue-500', description: 'From harm and evil' },
+      { id: 'forgiveness', name: 'Seeking Forgiveness', icon: 'refresh', color: 'from-teal-400 to-emerald-500', description: 'When guilt weighs you down' },
+      { id: 'guidance', name: 'Life Decisions', icon: 'compass', color: 'from-orange-400 to-red-500', description: "When you don't know what to do" },
+      { id: 'depression', name: 'Sadness & Low Mood', icon: 'moon', color: 'from-purple-400 to-violet-500', description: 'When everything feels dark' },
+    ];
+
+    const situationalDuas = [
+      { id: 'sc1', category: 'anxiety', title: "Prophet's Refuge from Anxiety", arabic: 'اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ، وَأَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ، وَأَعُوذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ، وَأَعُوذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَقَهْرِ الرِّجَالِ', transliteration: "Allahumma inni a'udhu bika minal-hammi wal-hazan...", translation: 'O Allah, I seek refuge in You from worry and grief, from incapacity and laziness, from cowardice and miserliness.', source: 'Sahih al-Bukhari 6369', context: 'The Prophet ﷺ used to say this frequently.', tafsir: 'This dua addresses both emotional struggles and their practical manifestations.', whenToRead: 'Any time you feel anxious', howToRead: 'Say with sincerity, repeat multiple times.', keywords: ['anxiety', 'worry', 'stress', 'overwhelmed', 'fear', 'nervous'] },
+      { id: 'sc2', category: 'anxiety', title: 'Dua of Yunus from the Whale', arabic: 'لَا إِلَٰهَ إِلَّا أَنْتَ سُبْحَانَكَ إِنِّي كُنْتُ مِنَ الظَّالِمِينَ', transliteration: 'La ilaha illa anta subhanaka inni kuntu minaz-zalimeen', translation: 'There is no deity except You; exalted are You. Indeed, I have been of the wrongdoers.', source: 'Quran 21:87', context: 'Prophet Yunus made this from the belly of the whale.', tafsir: 'The Prophet ﷺ said no Muslim makes dua with these words except that Allah responds.', whenToRead: 'When you feel trapped or hopeless', howToRead: 'Repeat with deep reflection', keywords: ['trapped', 'hopeless', 'despair', 'stressed', 'stuck'] },
+      { id: 'sc3', category: 'anxiety', title: 'Allah is Sufficient', arabic: 'حَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ', transliteration: "Hasbunallahu wa ni'mal wakeel", translation: 'Allah is sufficient for us, and He is the best Disposer of affairs.', source: 'Quran 3:173', context: 'Said by Ibrahim (AS) when thrown into the fire.', tafsir: 'When you declare Allah as your wakeel, you place your affairs in His hands.', whenToRead: 'When facing the impossible', howToRead: 'Say with complete trust in Allah', keywords: ['trust', 'impossible', 'overwhelmed', 'scared'] },
+      { id: 'sc4', category: 'marriage', title: 'Finding a Righteous Spouse', arabic: "رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ وَاجْعَلْنَا لِلْمُتَّقِينَ إِمَامًا", transliteration: "Rabbana hab lana min azwajina wa dhurriyyatina qurrata a'yun...", translation: 'Our Lord, grant us from our spouses and offspring comfort to our eyes, and make us leaders for the righteous.', source: 'Quran 25:74', context: 'Dua of the servants of the Most Merciful.', tafsir: 'Asks for a spouse who will be a source of peace and spiritual growth.', whenToRead: 'When seeking marriage or blessing your family', howToRead: 'Make part of regular duas, especially in tahajjud', keywords: ['marriage', 'spouse', 'husband', 'wife', 'single', 'wedding', 'love'] },
+      { id: 'sc5', category: 'marriage', title: 'Like Musa Asked for Provision', arabic: 'رَبِّ إِنِّي لِمَا أَنْزَلْتَ إِلَيَّ مِنْ خَيْرٍ فَقِيرٌ', transliteration: 'Rabbi inni lima anzalta ilayya min khayrin faqeer', translation: 'My Lord, indeed I am in need of whatever good You would send down to me.', source: 'Quran 28:24', context: 'Prophet Musa made this when he arrived in Madyan as a stranger.', tafsir: 'Beautiful in its humility—acknowledging complete neediness before Allah.', whenToRead: 'When looking for a spouse', howToRead: 'Pair with good actions', keywords: ['need spouse', 'lonely', 'looking for marriage'] },
+      { id: 'sc6', category: 'exams', title: 'Dua of Musa for Clarity', arabic: 'رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي يَفْقَهُوا قَوْلِي', transliteration: "Rabbish-rahli sadri, wa yassir li amri...", translation: 'My Lord, expand for me my chest, ease for me my task, and untie the knot from my tongue.', source: 'Quran 20:25-28', context: 'Musa made this before confronting Pharaoh.', tafsir: 'Expansion of the chest refers to inner tranquility and confidence.', whenToRead: 'Before exams, presentations, interviews', howToRead: 'Say before studying or at start of exam', keywords: ['exam', 'test', 'study', 'presentation', 'interview', 'focus', 'memory'] },
+      { id: 'sc7', category: 'exams', title: 'Increase Me in Knowledge', arabic: 'رَبِّ زِدْنِي عِلْمًا', transliteration: "Rabbi zidni 'ilma", translation: 'My Lord, increase me in knowledge.', source: 'Quran 20:114', context: 'The only thing Allah commands to ask for an increase in.', tafsir: 'Knowledge includes wisdom and understanding that brings one closer to Allah.', whenToRead: 'When studying or learning Quran', howToRead: 'Make a habit before study sessions', keywords: ['knowledge', 'learning', 'studying', 'wisdom', 'school'] },
+      { id: 'sc8', category: 'spirituality', title: 'Firmness in Faith', arabic: 'يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ', transliteration: "Ya muqallib al-qulubi thabbit qalbi 'ala deenik", translation: 'O Turner of hearts, make my heart firm upon Your religion.', source: 'Tirmidhi', context: 'The Prophet ﷺ made this frequently.', tafsir: 'Acknowledges that faith fluctuates and only Allah can keep the heart steadfast.', whenToRead: 'Daily, especially when feeling spiritually weak', howToRead: "Say with awareness of your heart's vulnerability", keywords: ['faith', 'iman', 'doubt', 'spiritual', 'weak iman', 'struggling'] },
+      { id: 'sc9', category: 'spirituality', title: 'For Khushu in Prayer', arabic: 'اللَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ وَشُكْرِكَ وَحُسْنِ عِبَادَتِكَ', transliteration: "Allahumma a'inni 'ala dhikrika wa shukrika wa husni 'ibadatik", translation: 'O Allah, help me to remember You, thank You, and worship You in the best manner.', source: 'Abu Dawud, Nasai', context: "Prophet ﷺ advised Mu'adh to never forget this after every prayer.", tafsir: 'Asks for dhikr (remembrance), shukr (gratitude), and worship—foundation of spiritual life.', whenToRead: 'After every obligatory prayer', howToRead: 'Make it a constant habit after salah', keywords: ['prayer', 'salah', 'focus', 'khushu', 'distracted', 'worship'] },
+      { id: 'sc10', category: 'health', title: 'Remove the Harm', arabic: 'اللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِهِ وَأَنْتَ الشَّافِي لَا شِفَاءَ إِلَّا شِفَاؤُكَ شِفَاءً لَا يُغَادِرُ سَقَمًا', transliteration: "Allahumma Rabban-nas, adhhibil-ba's, ishfihi wa antash-Shafi...", translation: 'O Allah, Lord of mankind, remove the harm. Heal, for You are the Healer. There is no healing except Your healing.', source: 'Bukhari, Muslim', context: 'The Prophet ﷺ would say this when visiting the sick.', tafsir: 'Acknowledges that all healing ultimately comes from Allah.', whenToRead: 'When you or a loved one is sick', howToRead: 'Place hand on affected area and recite 3 times', keywords: ['sick', 'illness', 'health', 'pain', 'healing', 'disease', 'doctor'] },
+      { id: 'sc11', category: 'provision', title: 'For Halal Provision', arabic: "اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ", transliteration: "Allahummak-fini bi-halalika 'an haramik...", translation: "O Allah, suffice me with what is halal instead of haram, and make me independent of anyone besides You.", source: 'Tirmidhi', context: "Prophet ﷺ taught this to Ali (RA) when he complained of debt.", tafsir: "Asks for enough halal provision that you're not tempted by haram.", whenToRead: 'When facing financial difficulty or job seeking', howToRead: 'Make with sincerity, trusting Allah is Ar-Razzaq', keywords: ['money', 'job', 'career', 'debt', 'broke', 'unemployed', 'provision'] },
+      { id: 'sc12', category: 'family', title: 'For Righteous Children', arabic: "رَبِّ هَبْ لِي مِنْ لَدُنْكَ ذُرِّيَّةً طَيِّبَةً إِنَّكَ سَمِيعُ الدُّعَاءِ", transliteration: "Rabbi hab li min ladunka dhurriyyatan tayyibah...", translation: 'My Lord, grant me from Yourself good offspring. Indeed, You are the Hearer of supplication.', source: 'Quran 3:38', context: 'Dua of Zakariyya (AS), who was old and his wife was barren.', tafsir: 'Asks for offspring that are good, pure, righteous—not just children.', whenToRead: 'When trying to conceive or for existing children', howToRead: "Make with patience, knowing Allah's timing is perfect", keywords: ['children', 'kids', 'baby', 'pregnant', 'fertility', 'parenting'] },
+      { id: 'sc13', category: 'grief', title: 'In Times of Calamity', arabic: 'إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ اللَّهُمَّ أَجِرْنِي فِي مُصِيبَتِي وَأَخْلِفْ لِي خَيْرًا مِنْهَا', transliteration: "Inna lillahi wa inna ilayhi raji'un. Allahumma-jurni fi museebati...", translation: 'Indeed we belong to Allah and to Him we return. O Allah, reward me in my calamity and replace it with something better.', source: 'Muslim', context: 'Umm Salamah said this when her husband died. Allah gave her the Prophet ﷺ as a husband.', tafsir: 'Combines surrender, perspective, and trust that Allah will replace loss with better.', whenToRead: 'Upon news of death, loss, or calamity', howToRead: 'Say immediately when loss occurs', keywords: ['death', 'loss', 'grief', 'mourning', 'passed away', 'funeral'] },
+      { id: 'sc14', category: 'protection', title: 'From Evil Eye & Jealousy', arabic: 'أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ', transliteration: "A'udhu bi kalimatillahit-tammati min sharri ma khalaq", translation: 'I seek refuge in the perfect words of Allah from the evil of that which He has created.', source: 'Muslim', context: 'Protection from all created evil including evil eye, envy, and jinn.', tafsir: 'By seeking refuge in Allah\'s perfect words, you are protected.', whenToRead: 'Morning, evening, before sleep', howToRead: "Say 3 times with trust in Allah's protection", keywords: ['evil eye', 'jealousy', 'envy', 'protection', 'nazar', 'hasad'] },
+      { id: 'sc15', category: 'forgiveness', title: 'Master of Forgiveness', arabic: 'اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَٰهَ إِلَّا أَنْتَ خَلَقْتَنِي وَأَنَا عَبْدُكَ وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ', transliteration: "Allahumma anta Rabbi la ilaha illa ant...", translation: "O Allah, You are my Lord. There is no god but You. I acknowledge Your blessings and my sins. Forgive me, for none forgives sins but You.", source: 'Bukhari - Sayyid al-Istighfar', context: "Whoever says it with certainty and dies that day enters Paradise.", tafsir: "Called 'Sayyid al-Istighfar' (Master of Forgiveness)—contains all elements of repentance.", whenToRead: 'Morning and evening', howToRead: 'Say with sincerity and intention to change', keywords: ['forgiveness', 'sin', 'repent', 'tawbah', 'guilty', 'ashamed', 'regret'] },
+      { id: 'sc16', category: 'guidance', title: 'Istikhara - Seeking Guidance', arabic: "اللَّهُمَّ إِنِّي أَسْتَخِيرُكَ بِعِلْمِكَ وَأَسْتَقْدِرُكَ بِقُدْرَتِكَ وَأَسْأَلُكَ مِنْ فَضْلِكَ الْعَظِيمِ", transliteration: "Allahumma inni astakhiruka bi 'ilmika...", translation: "O Allah, I seek Your guidance by Your knowledge, and I seek ability by Your power, and I ask You of Your great bounty.", source: 'Bukhari', context: 'The Prophet ﷺ taught Istikhara in all matters.', tafsir: "A mindset of always seeking Allah's guidance. Proceed with what seems best, trusting Allah.", whenToRead: 'Before important decisions', howToRead: 'Pray 2 rakaat of nafl then make this dua', keywords: ['decision', 'confused', 'which option', 'should I', 'istikhara', 'choice'] },
+      { id: 'sc17', category: 'depression', title: 'When Sadness Weighs Heavy', arabic: 'اللَّهُمَّ إِنِّي عَبْدُكَ ابْنُ عَبْدِكَ ابْنُ أَمَتِكَ نَاصِيَتِي بِيَدِكَ مَاضٍ فِيَّ حُكْمُكَ عَدْلٌ فِيَّ قَضَاؤُكَ أَسْأَلُكَ بِكُلِّ اسْمٍ هُوَ لَكَ أَنْ تَجْعَلَ الْقُرْآنَ رَبِيعَ قَلْبِي وَنُورَ صَدْرِي وَجَلَاءَ حُزْنِي وَذَهَابَ هَمِّي', transliteration: "Allahumma inni 'abduka...", translation: 'O Allah, I am Your servant. I ask You by every name belonging to You to make the Quran the spring of my heart, the light of my chest, the banisher of my sadness.', source: 'Ahmad', context: 'Whoever says this, Allah will remove his distress and replace it with joy.', tafsir: "Spring (rabi') brings life after winter—the Quran brings life to dead hearts.", whenToRead: 'When feeling depressed or hopeless', howToRead: 'Memorize it. Say with full presence.', keywords: ['sad', 'depressed', 'hopeless', 'unhappy', 'low', 'down', 'empty'] },
+    ];
+
+    const findDuasByKeyword = (keyword) => {
+      const lower = keyword.toLowerCase();
+      return situationalDuas.filter(d => d.keywords.some(k => k.includes(lower)) || d.category.includes(lower) || d.title.toLowerCase().includes(lower) || d.translation.toLowerCase().includes(lower));
+    };
+
+    const getDuasByCategory = (categoryId) => situationalDuas.filter(d => d.category === categoryId);
+
+    // ============================================
     // CONTEXT
     // ============================================
 
@@ -3928,12 +4008,19 @@
           journalEntries: [],
           onboardingComplete: false,
           userName: '',
+          // Smart Adhkar tracking
+          adhkarProgress: { morning: {}, evening: {} },
+          adhkarStreak: { current: 0, longest: 0, lastDate: null },
+          adhkarHistory: [],
+          // Dua Coach tracking
+          duaJourney: [],
+          savedCoachDuas: [],
         };
 
         // Handle URL parameters from PWA shortcuts
         const urlParams = new URLSearchParams(window.location.search);
         const viewParam = urlParams.get('view');
-        if (viewParam && ['hadith', 'duas', 'dhikr', 'qibla', 'prayer', 'sahabiyat', 'saved'].includes(viewParam)) {
+        if (viewParam && ['hadith', 'duas', 'dhikr', 'qibla', 'prayer', 'sahabiyat', 'saved', 'smartadhkar', 'duacoach'].includes(viewParam)) {
           baseState.view = viewParam;
           // Clean up URL without reloading
           window.history.replaceState({}, '', window.location.pathname);
@@ -6478,6 +6565,48 @@
                 </svg>
               </div>
 
+              {/* Smart Daily Adhkar - NEW */}
+              <button onClick={() => { haptic.light(); updateState({ view: 'smartadhkar' }); }}
+                className="w-full rounded-2xl p-4 mb-3 flex items-center gap-3 active:scale-98 transition-transform relative overflow-hidden z-10" style={{
+                  ...glossyCard,
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 50%, rgba(253,242,248,0.9) 100%)'
+                }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-50/50 via-transparent to-orange-50/30 rounded-2xl pointer-events-none"></div>
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg relative z-10">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                  </svg>
+                </div>
+                <div className="text-left relative z-10 flex-1">
+                  <h4 className="font-bold text-pink-800">Smart Adhkar</h4>
+                  <p className="text-xs text-pink-500">Guided morning & evening remembrance</p>
+                </div>
+                <div className="flex items-center gap-1 px-2 py-1 bg-orange-100 rounded-full z-10">
+                  <svg className="w-3 h-3 text-orange-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 23a7.5 7.5 0 0 1-5.138-12.963C8.204 8.774 11.5 6.5 11 1.5c6 4 9 8 3 14 1 0 2.5 0 5-2.47.27.68.5 1.43.5 2.22 0 4.14-3.36 7.75-7.5 7.75z"/></svg>
+                  <span className="text-xs font-medium text-orange-600">Streak</span>
+                </div>
+              </button>
+
+              {/* Dua Coach - NEW */}
+              <button onClick={() => { haptic.light(); updateState({ view: 'duacoach' }); }}
+                className="w-full rounded-2xl p-4 mb-3 flex items-center gap-3 active:scale-98 transition-transform relative overflow-hidden z-10" style={{
+                  ...glossyCard,
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 50%, rgba(253,242,248,0.9) 100%)'
+                }}>
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/50 via-transparent to-teal-50/30 rounded-2xl pointer-events-none"></div>
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg relative z-10">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                  </svg>
+                </div>
+                <div className="text-left relative z-10 flex-1">
+                  <h4 className="font-bold text-pink-800">Dua Coach</h4>
+                  <p className="text-xs text-pink-500">Find the perfect dua for your situation</p>
+                </div>
+                <span className="px-2 py-1 bg-emerald-100 text-emerald-600 text-xs font-medium rounded-full z-10">New</span>
+              </button>
+
               {/* Dhikr & Tasbih */}
               <button onClick={() => { haptic.light(); updateState({ view: 'dhikr' }); }}
                 className="w-full rounded-2xl p-4 mb-3 flex items-center gap-3 active:scale-98 transition-transform relative overflow-hidden z-10" style={{
@@ -8324,6 +8453,621 @@
     };
 
     // ============================================
+    // SMART DAILY ADHKAR VIEW
+    // ============================================
+
+    const SmartAdhkarView = () => {
+      const { state, updateState } = useApp();
+      const [activeType, setActiveType] = useState('morning');
+      const [currentIndex, setCurrentIndex] = useState(0);
+      const [showComplete, setShowComplete] = useState(false);
+      const [isPlaying, setIsPlaying] = useState(false);
+      const [showInfo, setShowInfo] = useState(false);
+      const touchStartX = useRef(0);
+      const touchEndX = useRef(0);
+
+      const adhkars = adhkarDatabase[activeType] || [];
+      const currentAdhkar = adhkars[currentIndex];
+      const stats = getAdhkarStats(activeType);
+
+      // Get progress for current adhkar
+      const getProgress = (dhikrId) => state.adhkarProgress?.[activeType]?.[dhikrId] || 0;
+
+      // Calculate overall session progress
+      const calculateSessionProgress = () => {
+        let completed = 0, total = 0;
+        adhkars.forEach((adhkar) => {
+          total += adhkar.count;
+          completed += Math.min(getProgress(adhkar.id), adhkar.count);
+        });
+        return total > 0 ? (completed / total) * 100 : 0;
+      };
+
+      const sessionProgress = calculateSessionProgress();
+      const isSessionComplete = sessionProgress >= 100;
+      const isCurrentComplete = currentAdhkar && getProgress(currentAdhkar.id) >= currentAdhkar.count;
+
+      // Handle tap/count increment
+      const handleTap = () => {
+        if (!currentAdhkar || isCurrentComplete) return;
+        haptic.light();
+
+        const newCount = getProgress(currentAdhkar.id) + 1;
+        updateState({
+          adhkarProgress: {
+            ...state.adhkarProgress,
+            [activeType]: {
+              ...(state.adhkarProgress?.[activeType] || {}),
+              [currentAdhkar.id]: newCount
+            }
+          }
+        });
+
+        if (newCount >= currentAdhkar.count) {
+          setTimeout(() => {
+            if (currentIndex < adhkars.length - 1) {
+              setCurrentIndex(currentIndex + 1);
+            } else {
+              handleSessionComplete();
+            }
+          }, 500);
+        }
+      };
+
+      // Handle session completion
+      const handleSessionComplete = () => {
+        if (sessionProgress < 100) return;
+        setShowComplete(true);
+        haptic.success();
+
+        const today = new Date().toDateString();
+        const lastDate = state.adhkarStreak?.lastDate;
+        const yesterday = new Date(Date.now() - 86400000).toDateString();
+        let newCurrent = 1;
+        if (lastDate === yesterday) newCurrent = (state.adhkarStreak?.current || 0) + 1;
+        else if (lastDate === today) newCurrent = state.adhkarStreak?.current || 1;
+
+        updateState({
+          adhkarStreak: {
+            current: newCurrent,
+            longest: Math.max(newCurrent, state.adhkarStreak?.longest || 0),
+            lastDate: today
+          },
+          adhkarHistory: [...(state.adhkarHistory || []).slice(-6), { type: activeType, date: new Date().toISOString() }]
+        });
+
+        setTimeout(() => setShowComplete(false), 3000);
+      };
+
+      // Touch handlers for swipe
+      const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+      const handleTouchMove = (e) => { touchEndX.current = e.touches[0].clientX; };
+      const handleTouchEnd = () => {
+        const diff = touchStartX.current - touchEndX.current;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && currentIndex < adhkars.length - 1) setCurrentIndex(currentIndex + 1);
+          else if (diff < 0 && currentIndex > 0) setCurrentIndex(currentIndex - 1);
+        }
+      };
+
+      // Navigate between adhkars
+      const goNext = () => { if (currentIndex < adhkars.length - 1) setCurrentIndex(currentIndex + 1); };
+      const goPrev = () => { if (currentIndex > 0) setCurrentIndex(currentIndex - 1); };
+
+      // Reset current session
+      const handleReset = () => {
+        updateState({ adhkarProgress: { ...state.adhkarProgress, [activeType]: {} } });
+        setCurrentIndex(0);
+      };
+
+      // Text-to-speech
+      const toggleAudio = () => {
+        if (isPlaying) {
+          window.speechSynthesis.cancel();
+          setIsPlaying(false);
+        } else if (currentAdhkar) {
+          const utterance = new SpeechSynthesisUtterance(currentAdhkar.arabic);
+          utterance.lang = 'ar-SA';
+          utterance.rate = 0.8;
+          utterance.onend = () => setIsPlaying(false);
+          window.speechSynthesis.speak(utterance);
+          setIsPlaying(true);
+        }
+      };
+
+      useEffect(() => { return () => window.speechSynthesis.cancel(); }, []);
+      useEffect(() => { if (isSessionComplete) handleSessionComplete(); }, [sessionProgress]);
+
+      return (
+        <PageWrapper className="flex flex-col">
+          <div className="p-5 pt-8 max-w-lg mx-auto safe-top flex-1 flex flex-col">
+            <div className="flex items-center justify-between mb-4">
+              <BackButton onClick={() => updateState({ view: 'home' })} label="Home" />
+              <button onClick={handleReset} className="p-2 rounded-lg text-pink-400 active:bg-pink-50">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+              </button>
+            </div>
+
+            <div className="text-center mb-6 animate-fade-in">
+              <h1 className="text-3xl font-bold gradient-text mb-1">Daily Adhkar</h1>
+              <p className="text-sm text-pink-500">Guided morning & evening remembrance</p>
+            </div>
+
+            {/* Morning/Evening Toggle */}
+            <div className="flex gap-2 mb-4 bg-pink-50 p-1 rounded-xl">
+              <button onClick={() => { setActiveType('morning'); setCurrentIndex(0); }}
+                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-medium transition-all ${activeType === 'morning' ? 'bg-amber-500 text-white shadow-sm' : 'text-pink-500'}`}>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                Morning
+              </button>
+              <button onClick={() => { setActiveType('evening'); setCurrentIndex(0); }}
+                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-sm font-medium transition-all ${activeType === 'evening' ? 'bg-indigo-500 text-white shadow-sm' : 'text-pink-500'}`}>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+                Evening
+              </button>
+            </div>
+
+            {/* Streak Display */}
+            <div className="flex items-center justify-center gap-6 mb-4">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-orange-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 23a7.5 7.5 0 0 1-5.138-12.963C8.204 8.774 11.5 6.5 11 1.5c6 4 9 8 3 14 1 0 2.5 0 5-2.47.27.68.5 1.43.5 2.22 0 4.14-3.36 7.75-7.5 7.75z"/></svg>
+                </div>
+                <div>
+                  <p className="text-lg font-semibold text-pink-800">{state.adhkarStreak?.current || 0}</p>
+                  <p className="text-xs text-pink-400">Day Streak</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <div>
+                  <p className="text-lg font-semibold text-pink-800">{state.adhkarStreak?.longest || 0}</p>
+                  <p className="text-xs text-pink-400">Best Streak</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Progress Circle & Card */}
+            <div className="mb-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs text-pink-500">Session Progress</span>
+                <span className="text-xs font-medium text-pink-600">{Math.round(sessionProgress)}%</span>
+              </div>
+              <div className="h-2 bg-pink-100 rounded-full overflow-hidden">
+                <div className={`h-full transition-all duration-300 rounded-full ${activeType === 'morning' ? 'bg-amber-500' : 'bg-indigo-500'}`} style={{ width: `${sessionProgress}%` }} />
+              </div>
+              <div className="flex justify-between mt-1">
+                <span className="text-xs text-pink-400">{currentIndex + 1} of {adhkars.length} adhkar</span>
+                <span className="text-xs text-pink-400">~{stats.totalDhikr} total dhikr</span>
+              </div>
+            </div>
+
+            {/* Completion Animation */}
+            {showComplete && (
+              <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/30 pointer-events-none">
+                <div className="text-center animate-fade-in">
+                  <div className="w-24 h-24 bg-emerald-500 rounded-full flex items-center justify-center mb-4 mx-auto animate-pulse">
+                    <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                  </div>
+                  <p className="text-xl font-medium text-white">Masha'Allah!</p>
+                  <p className="text-pink-200">Session Complete</p>
+                </div>
+              </div>
+            )}
+
+            {/* Main Adhkar Card */}
+            {currentAdhkar && (
+              <div className="flex-1 flex flex-col" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+                <div className="glass-card p-6 rounded-3xl flex-1 flex flex-col relative">
+                  {/* Controls */}
+                  <div className="absolute top-4 right-4 flex items-center gap-2">
+                    <button onClick={() => setShowInfo(!showInfo)} className="p-2 rounded-lg text-pink-400 hover:bg-pink-50"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></button>
+                    <button onClick={toggleAudio} className="p-2 rounded-lg text-pink-400 hover:bg-pink-50">
+                      {isPlaying ? <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd"/><path strokeLinecap="round" strokeLinejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg> : <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>}
+                    </button>
+                  </div>
+
+                  {/* Counter badge */}
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${isCurrentComplete ? 'bg-emerald-100 text-emerald-600' : activeType === 'morning' ? 'bg-amber-100 text-amber-600' : 'bg-indigo-100 text-indigo-600'}`}>
+                      {isCurrentComplete ? '✓ Complete' : `${getProgress(currentAdhkar.id)} / ${currentAdhkar.count}`}
+                    </span>
+                  </div>
+
+                  {/* Info Panel */}
+                  {showInfo && (
+                    <div className="mb-4 p-3 bg-pink-50 rounded-xl animate-fade-in">
+                      <p className="text-xs text-pink-600 mb-2"><span className="font-medium">Source:</span> {currentAdhkar.source}</p>
+                      <p className="text-xs text-pink-500">{currentAdhkar.benefit}</p>
+                    </div>
+                  )}
+
+                  {/* Arabic Text */}
+                  <div onClick={handleTap} className={`flex-1 flex flex-col justify-center cursor-pointer active:scale-[0.99] transition-transform ${isCurrentComplete ? 'opacity-50' : ''}`}>
+                    <p className="font-arabic text-2xl leading-relaxed text-pink-800 text-center mb-6" dir="rtl">{currentAdhkar.arabic}</p>
+                    <p className="text-sm text-pink-500 text-center mb-4 italic">{currentAdhkar.transliteration}</p>
+                    <p className="text-sm text-pink-600 text-center leading-relaxed">{currentAdhkar.translation}</p>
+                  </div>
+
+                  {!isCurrentComplete && <p className="text-center text-xs text-pink-400 mt-4 animate-pulse">Tap anywhere to count</p>}
+                </div>
+
+                {/* Navigation */}
+                <div className="flex items-center justify-between py-4">
+                  <button onClick={goPrev} disabled={currentIndex === 0} className={`flex items-center gap-1 px-4 py-2 rounded-lg ${currentIndex === 0 ? 'text-pink-200' : 'text-pink-600 active:bg-pink-50'}`}>
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                    Previous
+                  </button>
+                  <div className="flex gap-1">
+                    {adhkars.slice(Math.max(0, currentIndex - 2), currentIndex + 3).map((_, idx) => {
+                      const actualIdx = Math.max(0, currentIndex - 2) + idx;
+                      const isComplete = getProgress(adhkars[actualIdx]?.id) >= adhkars[actualIdx]?.count;
+                      return <div key={actualIdx} className={`w-2 h-2 rounded-full ${actualIdx === currentIndex ? (activeType === 'morning' ? 'bg-amber-500 w-4' : 'bg-indigo-500 w-4') : isComplete ? 'bg-emerald-400' : 'bg-pink-200'}`} />;
+                    })}
+                  </div>
+                  <button onClick={goNext} disabled={currentIndex === adhkars.length - 1} className={`flex items-center gap-1 px-4 py-2 rounded-lg ${currentIndex === adhkars.length - 1 ? 'text-pink-200' : 'text-pink-600 active:bg-pink-50'}`}>
+                    Next
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* History */}
+            {state.adhkarHistory?.length > 0 && (
+              <div className="mt-2 glass-card p-4 rounded-2xl">
+                <h3 className="text-sm font-medium text-pink-600 mb-3">Recent Completions</h3>
+                <div className="flex gap-2 flex-wrap">
+                  {state.adhkarHistory.slice(-7).map((entry, i) => (
+                    <div key={i} className={`flex items-center gap-1 px-2 py-1 rounded-lg text-xs ${entry.type === 'morning' ? 'bg-amber-50 text-amber-600' : 'bg-indigo-50 text-indigo-600'}`}>
+                      {entry.type === 'morning' ? <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/></svg> : <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>}
+                      {new Date(entry.date).toLocaleDateString('en-US', { weekday: 'short' })}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </PageWrapper>
+      );
+    };
+
+    // ============================================
+    // DUA COACH VIEW
+    // ============================================
+
+    const DuaCoachView = () => {
+      const { state, updateState } = useApp();
+      const [view, setView] = useState('home'); // home, search, category, detail
+      const [searchQuery, setSearchQuery] = useState('');
+      const [selectedCategory, setSelectedCategory] = useState(null);
+      const [selectedDua, setSelectedDua] = useState(null);
+      const [searchResults, setSearchResults] = useState([]);
+      const [isPlaying, setIsPlaying] = useState(false);
+      const [showTafsir, setShowTafsir] = useState(false);
+
+      const handleSearch = (query) => {
+        setSearchQuery(query);
+        if (query.length > 2) {
+          setSearchResults(findDuasByKeyword(query));
+          setView('search');
+        } else if (query.length === 0) {
+          setSearchResults([]);
+          setView('home');
+        }
+      };
+
+      const handleCategorySelect = (category) => {
+        setSelectedCategory(category);
+        setView('category');
+      };
+
+      const handleDuaSelect = (dua) => {
+        setSelectedDua(dua);
+        setView('detail');
+        // Add to journey
+        updateState({
+          duaJourney: [...(state.duaJourney || []).slice(-9), { id: Date.now(), concern: selectedCategory?.name || 'Search', duaId: dua.id }]
+        });
+      };
+
+      const toggleSaved = (duaId) => {
+        const saved = state.savedCoachDuas || [];
+        const newSaved = saved.includes(duaId) ? saved.filter(id => id !== duaId) : [...saved, duaId];
+        updateState({ savedCoachDuas: newSaved });
+      };
+
+      const isSaved = (duaId) => (state.savedCoachDuas || []).includes(duaId);
+
+      const toggleAudio = () => {
+        if (isPlaying) {
+          window.speechSynthesis.cancel();
+          setIsPlaying(false);
+        } else if (selectedDua) {
+          const utterance = new SpeechSynthesisUtterance(selectedDua.arabic);
+          utterance.lang = 'ar-SA';
+          utterance.rate = 0.7;
+          utterance.onend = () => setIsPlaying(false);
+          window.speechSynthesis.speak(utterance);
+          setIsPlaying(true);
+        }
+      };
+
+      useEffect(() => { return () => window.speechSynthesis.cancel(); }, []);
+
+      const getCategoryIcon = (iconName) => {
+        const icons = {
+          heart: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>,
+          users: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>,
+          book: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>,
+          sparkle: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,
+          activity: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>,
+          briefcase: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>,
+          home: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>,
+          cloud: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>,
+          shield: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>,
+          refresh: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>,
+          compass: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="10"/><polygon fill="currentColor" points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>,
+          moon: <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>,
+        };
+        return icons[iconName] || icons.heart;
+      };
+
+      // Render home view
+      const renderHome = () => (
+        <>
+          {/* Search Bar */}
+          <div className="mb-6">
+            <div className="relative">
+              <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="11" cy="11" r="8"/><path strokeLinecap="round" d="M21 21l-4.35-4.35"/></svg>
+              <input type="text" value={searchQuery} onChange={(e) => handleSearch(e.target.value)}
+                placeholder="What's on your heart? (anxiety, marriage, exams...)"
+                className="w-full pl-12 pr-4 py-3 bg-white/70 border border-pink-200 rounded-xl text-pink-700 placeholder:text-pink-400 focus:outline-none focus:ring-2 focus:ring-pink-300"
+              />
+              {searchQuery && (
+                <button onClick={() => { setSearchQuery(''); setSearchResults([]); setView('home'); }} className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-pink-100">
+                  <svg className="w-4 h-4 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Quick suggestions */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            {['anxious', 'exam tomorrow', 'looking for spouse', 'feeling sad'].map((s) => (
+              <button key={s} onClick={() => handleSearch(s)} className="px-3 py-1.5 bg-pink-100 rounded-full text-xs text-pink-600 hover:bg-pink-200">{s}</button>
+            ))}
+          </div>
+
+          {/* Categories Grid */}
+          <h2 className="text-xs font-medium text-pink-500 uppercase tracking-wide mb-4">What do you need a dua for?</h2>
+          <div className="grid grid-cols-2 gap-3">
+            {duaCoachCategories.map((cat) => (
+              <button key={cat.id} onClick={() => handleCategorySelect(cat)} className="glass-card p-4 rounded-2xl text-left active:scale-98 transition-transform">
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${cat.color} flex items-center justify-center mb-3 text-white shadow-lg`}>
+                  {getCategoryIcon(cat.icon)}
+                </div>
+                <h3 className="font-medium text-pink-700 text-sm">{cat.name}</h3>
+                <p className="text-xs text-pink-400 mt-0.5">{cat.description}</p>
+              </button>
+            ))}
+          </div>
+
+          {/* Journey */}
+          {state.duaJourney?.length > 0 && (
+            <div className="mt-6">
+              <h2 className="text-xs font-medium text-pink-500 uppercase tracking-wide mb-3">Your Dua Journey</h2>
+              <div className="glass-card p-4 rounded-2xl space-y-2">
+                {state.duaJourney.slice(-3).map((entry) => {
+                  const dua = situationalDuas.find(d => d.id === entry.duaId);
+                  if (!dua) return null;
+                  return (
+                    <button key={entry.id} onClick={() => handleDuaSelect(dua)} className="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-pink-50 text-left">
+                      <div className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <svg className="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-pink-700 truncate">{dua.title}</p>
+                        <p className="text-xs text-pink-400 truncate">{entry.concern}</p>
+                      </div>
+                      <svg className="w-4 h-4 text-pink-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </>
+      );
+
+      // Render search results
+      const renderSearchResults = () => (
+        <>
+          <button onClick={() => { setSearchQuery(''); setSearchResults([]); setView('home'); }} className="flex items-center gap-2 text-pink-400 mb-4">
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            <span className="text-sm">Back</span>
+          </button>
+          <h2 className="text-lg font-medium text-pink-800 mb-2">Duas for "{searchQuery}"</h2>
+          <p className="text-sm text-pink-400 mb-6">{searchResults.length} matching duas found</p>
+          {searchResults.length > 0 ? (
+            <div className="space-y-3">
+              {searchResults.map((dua) => (
+                <button key={dua.id} onClick={() => handleDuaSelect(dua)} className="w-full glass-card p-4 rounded-2xl text-left active:scale-98 transition-transform">
+                  <h3 className="font-medium text-pink-700 text-sm mb-1">{dua.title}</h3>
+                  <p className="text-xs text-pink-500 line-clamp-2">{dua.translation}</p>
+                  <span className="inline-block mt-2 px-2 py-0.5 bg-pink-100 text-pink-600 rounded text-xs">{dua.source}</span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="glass-card p-6 text-center rounded-2xl">
+              <p className="text-pink-500">No duas found for "{searchQuery}". Try different words.</p>
+            </div>
+          )}
+        </>
+      );
+
+      // Render category view
+      const renderCategoryView = () => {
+        const categoryDuas = getDuasByCategory(selectedCategory?.id);
+        return (
+          <>
+            <button onClick={() => setView('home')} className="flex items-center gap-2 text-pink-400 mb-4">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
+              <span className="text-sm">Back</span>
+            </button>
+            <div className="flex items-center gap-3 mb-6">
+              <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${selectedCategory?.color} flex items-center justify-center text-white shadow-lg`}>
+                {getCategoryIcon(selectedCategory?.icon)}
+              </div>
+              <div>
+                <h2 className="text-lg font-medium text-pink-800">{selectedCategory?.name}</h2>
+                <p className="text-sm text-pink-400">{categoryDuas.length} duas available</p>
+              </div>
+            </div>
+            <div className="space-y-3">
+              {categoryDuas.map((dua) => (
+                <button key={dua.id} onClick={() => handleDuaSelect(dua)} className="w-full glass-card p-4 rounded-2xl text-left active:scale-98 transition-transform">
+                  <h3 className="font-medium text-pink-700 text-sm mb-1">{dua.title}</h3>
+                  <p className="text-xs text-pink-500 line-clamp-2 mb-2">{dua.translation}</p>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 bg-pink-100 text-pink-600 rounded text-xs">{dua.source}</span>
+                    {isSaved(dua.id) && <span className="px-2 py-0.5 bg-emerald-100 text-emerald-600 rounded text-xs">Saved</span>}
+                  </div>
+                </button>
+              ))}
+            </div>
+          </>
+        );
+      };
+
+      // Render dua detail view
+      const renderDuaDetail = () => {
+        if (!selectedDua) return null;
+        const category = duaCoachCategories.find(c => c.id === selectedDua.category);
+        return (
+          <>
+            <button onClick={() => setView(selectedCategory ? 'category' : 'home')} className="flex items-center gap-2 text-pink-400 mb-4">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
+              <span className="text-sm">Back</span>
+            </button>
+
+            <div className="glass-card p-5 rounded-2xl mb-4">
+              {/* Header */}
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${category?.color || 'from-pink-400 to-rose-500'} flex items-center justify-center text-white`}>
+                    {getCategoryIcon(category?.icon)}
+                  </div>
+                  <div>
+                    <h2 className="font-medium text-pink-800">{selectedDua.title}</h2>
+                    <p className="text-xs text-pink-400">{category?.name}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button onClick={toggleAudio} className="p-2 rounded-lg text-pink-400 hover:bg-pink-50">
+                    {isPlaying ? <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd"/><path strokeLinecap="round" strokeLinejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/></svg> : <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg>}
+                  </button>
+                  <button onClick={() => toggleSaved(selectedDua.id)} className="p-2 rounded-lg hover:bg-pink-50">
+                    {isSaved(selectedDua.id) ? <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"/></svg> : <svg className="w-5 h-5 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-5-7 5V5z"/></svg>}
+                  </button>
+                </div>
+              </div>
+
+              {/* Arabic */}
+              <div className="bg-pink-50 rounded-xl p-4 mb-4">
+                <p className="font-arabic text-xl leading-loose text-pink-800 text-center" dir="rtl">{selectedDua.arabic}</p>
+              </div>
+
+              {/* Transliteration */}
+              <p className="text-sm text-pink-500 italic text-center mb-4">{selectedDua.transliteration}</p>
+
+              {/* Translation */}
+              <div className="border-l-4 border-emerald-500 pl-4 mb-4">
+                <p className="text-pink-700 leading-relaxed">{selectedDua.translation}</p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-pink-400" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                <span className="text-sm text-pink-500">{selectedDua.source}</span>
+              </div>
+            </div>
+
+            {/* Context */}
+            <div className="glass-card p-5 rounded-2xl mb-4">
+              <h3 className="font-medium text-pink-800 mb-3 flex items-center gap-2">
+                <svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                Context & Background
+              </h3>
+              <p className="text-sm text-pink-600 leading-relaxed">{selectedDua.context}</p>
+            </div>
+
+            {/* Tafsir */}
+            <div className="glass-card p-5 rounded-2xl mb-4">
+              <button onClick={() => setShowTafsir(!showTafsir)} className="w-full flex items-center justify-between">
+                <h3 className="font-medium text-pink-800 flex items-center gap-2">
+                  <svg className="w-4 h-4 text-violet-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  Deep Understanding
+                </h3>
+                <svg className={`w-5 h-5 text-pink-400 transition-transform ${showTafsir ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+              </button>
+              {showTafsir && <p className="text-sm text-pink-600 leading-relaxed mt-3 animate-fade-in">{selectedDua.tafsir}</p>}
+            </div>
+
+            {/* When & How */}
+            <div className="glass-card p-5 rounded-2xl">
+              <div className="space-y-4">
+                <div>
+                  <h4 className="text-xs font-medium text-pink-400 uppercase tracking-wide mb-2 flex items-center gap-2">
+                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    When to Read
+                  </h4>
+                  <p className="text-sm text-pink-600">{selectedDua.whenToRead}</p>
+                </div>
+                <div className="border-t border-pink-100 pt-4">
+                  <h4 className="text-xs font-medium text-pink-400 uppercase tracking-wide mb-2 flex items-center gap-2">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
+                    How to Read
+                  </h4>
+                  <p className="text-sm text-pink-600">{selectedDua.howToRead}</p>
+                </div>
+              </div>
+            </div>
+          </>
+        );
+      };
+
+      return (
+        <PageWrapper>
+          <div className="p-5 pt-8 max-w-lg mx-auto safe-top pb-24">
+            {view === 'home' && (
+              <>
+                <div className="flex items-center justify-between mb-6">
+                  <BackButton onClick={() => updateState({ view: 'home' })} label="Home" />
+                </div>
+                <div className="text-center mb-8 animate-fade-in">
+                  <div className="w-16 h-16 mx-auto bg-gradient-to-br from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-emerald-500/20">
+                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  </div>
+                  <h1 className="text-2xl font-bold gradient-text mb-2">Dua Coach</h1>
+                  <p className="text-sm text-pink-500">Find the perfect dua for what you're going through</p>
+                </div>
+              </>
+            )}
+            {view === 'home' && renderHome()}
+            {view === 'search' && renderSearchResults()}
+            {view === 'category' && renderCategoryView()}
+            {view === 'detail' && renderDuaDetail()}
+          </div>
+        </PageWrapper>
+      );
+    };
+
+    // ============================================
     // QIBLA COMPASS VIEW - INCREDIBLE 3D COMPASS
     // ============================================
 
@@ -9960,6 +10704,8 @@
           case 'notifications': return <NotificationsView />;
           case 'ask': return <AskView />;
           case 'settings': return <SettingsView />;
+          case 'smartadhkar': return <SmartAdhkarView />;
+          case 'duacoach': return <DuaCoachView />;
           default: return <HomeScreen />;
         }
       };
